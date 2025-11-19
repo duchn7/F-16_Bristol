@@ -153,7 +153,7 @@ while sol.t < t_sim
         if draw_aircraft == 1
             (new_vertices, faces) = get_vertices(sol.u[10], sol.u[11], sol.u[12],
                                                  sol.u[7] , sol.u[8] , sol.u[9])
-            aircraft_drawn_p13 = mesh!(p13, new_vertices, faces, color = :lightblue, shading = FastShading)
+            aircraft_drawn_p13 = mesh!(p13, new_vertices, faces, color = :lightblue, shading = true)
         end    
 
         pad_3d = 8
@@ -161,7 +161,7 @@ while sol.t < t_sim
                       padded(mins_y[11], maxs_y[11]) .+ (-pad_3d, pad_3d),
                       padded(mins_y[12], maxs_y[12]) .+ (-pad_3d, pad_3d))
 
-        aircraft_drawn_p14 = mesh!(p14, new_vertices, faces, color = :lightblue, shading = FastShading)
+        aircraft_drawn_p14 = mesh!(p14, new_vertices, faces, color = :lightblue, shading = true)
         p14.limits = (padded(sol.u[10] - pad_3d, sol.u[10] + pad_3d),
                       padded(sol.u[11] - pad_3d, sol.u[11] + pad_3d),
                       padded(sol.u[12] - pad_3d, sol.u[12] + pad_3d))
