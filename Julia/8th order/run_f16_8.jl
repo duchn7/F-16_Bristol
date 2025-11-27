@@ -24,9 +24,6 @@ r0     = -0.582082779189844 # rad/s
 phi0   = -0.113403721456400 # rad
 theta0 = -0.414023981066343 # rad
 psi0   = 0 # rad
-X0     = 0 # m
-Y0     = 0 # m
-Z0     = 0 # m
 
 # # CI 2
 # da = 0 # aileron in deg (+-21.5). Negative = right wing down
@@ -36,22 +33,19 @@ Z0     = 0 # m
 # T  = 10000 # thrust in N
 
 # # IC 2
-# alpha0 = 1.08578827850333 # rad
+# alpha0 = 1.01392670620385 # rad
 # beta0  = 0 # rad
-# V0     = 85.9137949570426 # m/s
+# V0     = 79.6036079039396 # m/s
 # p0     = 0 # rad/s
 # q0     = 0 # rad/s
 # r0     = 0 # rad/s
 # phi0   = 0 # rad
-# theta0 = 0.184809486923954 # rad
+# theta0 = 0.162105481242851 # rad
 # psi0   = 0 # rad
-# X0     = 0 # m
-# Y0     = 0 # m
-# Z0     = 0 # m
 
 # Solve ODE
 t_sim = 500 # Simulation time in seconds
-prob = ODEProblem(eom_8!, [alpha0 beta0 V0 p0 q0 r0 phi0 theta0 psi0 X0 Y0 Z0], (0.0, t_sim), [da, de, dr, CG, T])
+prob = ODEProblem(eom_8!, [alpha0 beta0 V0 p0 q0 r0 phi0 theta0], (0.0, t_sim), [da, de, dr, CG, T])
 sol  = init(prob, Tsit5(), reltol=1e-4)
 
 time_taken = @elapsed begin
@@ -65,10 +59,10 @@ plot_layout = @layout [a b c; d e f; g h i]
 
 p1 = plot(sol.t, sol.u.|> x -> x[1]*180/π, color=:black, linewidth=1, ylabel="α (deg)", legend=false)
 p2 = plot(sol.t, sol.u.|> x -> x[4]*180/π, color=:black, linewidth=1, ylabel="p (deg/s)", legend=false)
-p3 = plot(sol.t, sol.u.|> x -> x[4]*180/π, color=:black, linewidth=1, ylabel="ϕ (deg)", legend=false)
+p3 = plot(sol.t, sol.u.|> x -> x[7]*180/π, color=:black, linewidth=1, ylabel="ϕ (deg)", legend=false)
 p4 = plot(sol.t, sol.u.|> x -> x[2]*180/π, color=:black, linewidth=1, ylabel="β (deg)", legend=false)
 p5 = plot(sol.t, sol.u.|> x -> x[5]*180/π, color=:black, linewidth=1, ylabel="q (deg/s)", legend=false)
-p6 = plot(sol.t, sol.u.|> x -> x[4]*180/π, color=:black, linewidth=1, ylabel="θ (deg)", legend=false, xlabel="Time (s)")
+p6 = plot(sol.t, sol.u.|> x -> x[8]*180/π, color=:black, linewidth=1, ylabel="θ (deg)", legend=false, xlabel="Time (s)")
 p7 = plot(sol.t, sol.u.|> x -> x[3],       color=:black, linewidth=1, ylabel="V (m/s)", legend=false)
 p8 = plot(sol.t, sol.u.|> x -> x[6]*180/π, color=:black, linewidth=1, ylabel="r (deg/s)", legend=false)
 

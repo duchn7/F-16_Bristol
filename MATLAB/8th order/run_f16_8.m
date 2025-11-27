@@ -32,13 +32,14 @@ theta0 = -0.414023981066343; % rad
 % T  = 10000; % thrust in N
 
 % % IC 2
-% alpha0 = 1.08578827850333; % rad
+% alpha0 = 1.01392670620385; % rad
 % beta0  = 0; % rad
-% V0     = 85.9137949570426; % m/s
+% V0     = 79.6036079039396; % m/s
 % p0     = 0; % rad/s
 % q0     = 0; % rad/s
 % r0     = 0; % rad/s
 % phi0   = 0; % rad
+% theta0 = 0.162105481242851; % rad
 
 %% Simulate and plot
 x0 = [alpha0; beta0; V0; p0; q0; r0; phi0; theta0];

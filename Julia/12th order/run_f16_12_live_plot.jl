@@ -42,14 +42,14 @@ Z0     = 0 # m
 # T  = 10000 # thrust in N
 
 # # IC 2
-# alpha0 = 1.08578827850333 # rad
+# alpha0 = 1.01392670620385 # rad
 # beta0  = 0 # rad
-# V0     = 85.9137949570426 # m/s
+# V0     = 79.6036079039396 # m/s
 # p0     = 0 # rad/s
 # q0     = 0 # rad/s
 # r0     = 0 # rad/s
 # phi0   = 0 # rad
-# theta0 = 0.184809486923954 # rad
+# theta0 = 0.162105481242851 # rad
 # psi0   = 0 # rad
 # X0     = 0 # m
 # Y0     = 0 # m

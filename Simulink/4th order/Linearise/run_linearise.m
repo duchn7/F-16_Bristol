@@ -27,6 +27,10 @@ subplot(4,1,4); plot(t,x(:,4)*180/pi,'k','LineWidth',1); ylabel('\theta (deg)');
 [A, B, C, D] = linmod('f16_4_lin',x(end,:),u0);
 sys=ss(A,B,C,D);
 
+%% Pole zero map (stabilator to pitch angle)
+figure
+pzmap(tf(sys(4,1)))
+
 %% Step response (stabilator to pitch angle)
 % figure; step(tf(sys(4,1))*180/pi) % simple method without changing stabiltor sign
 
@@ -35,7 +39,7 @@ step_ampl=-1; % deg
 
 figure; 
 plot(t_lin,x_lin*180/pi,'k','LineWidth',1);
-xlabel('t (s)'); ylabel('\Delta\theta (deg)'); title('Linear simulation');
+xlabel('t (s)'); ylabel('\Delta\theta (deg)'); title('Linear step response');
 
 %% Frequency response (stabilator to pitch angle)
 % figure; bode(tf(sys(4,1))*180/pi) % simple method without changing stabiltor sign
@@ -45,6 +49,6 @@ W=logspace(-3,+2,1000);
 
 figure; 
 subplot(211); plot(W,20*log10(squeeze(MAG)),'k-','LineWidth',1); set(gca,'XScale', 'log'); xlim([0.001 100]); grid on;
-ylabel('Magnitude (dB)');
+ylabel('Magnitude (dB)'); title('Frequency response')
 subplot(212); plot(W,squeeze(PHASE),'k-','LineWidth',1); xlim([0.001 100]); grid on; set(gca,'XScale', 'log');
 set(gca,'YTick',[-360:45:360]); xlabel('Frequency (rad/s)'); ylabel('Phase (deg)');
