@@ -1,3 +1,4 @@
 # Use this to make git ignore certain files/directories
 
 __pycache__/
+*.py[cod]
