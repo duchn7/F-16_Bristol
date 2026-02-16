@@ -4,9 +4,10 @@
 import numpy as np
 from scipy.interpolate import interp1d
 from scipy.interpolate import RectBivariateSpline
+from scipy.integrate import solve_ivp
 from numpy.typing import NDArray
 
-class Base:
+class OpenLoop:
     """
     This class represents open loop model.
     """
@@ -178,7 +179,26 @@ class Base:
 
         return np.array([alphadot, vdot, qdot, thetadot])
     
-class ClosedLoop(Base):
+    def simulate_eom(self, x0, control_func, t_span):
+        """
+        An equations of motion wrapper that allows for simulating open loop model, with
+        time dependant or constant control function "control_func" which can be defined
+        by user.
+        
+        :param x0: NDArray, initial state
+        :param control_func: callable, control input function that depends on time or constant
+        :param t_span: span of simulation
+        :param t_eval: array of time intervals to be evaluated at.
+        """
+        def rhs(t,x):
+            u = control_func(t)
+            return self.eom(x, u)
+        
+        sol = solve_ivp(rhs, t_span, x0)
+        return sol.t, sol.y
+
+    
+class ClosedLoop(OpenLoop):
     """
     TThis class inherits from the open loop class and adds
     methods for applying controllers. For now only
