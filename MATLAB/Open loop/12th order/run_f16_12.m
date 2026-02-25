@@ -7,47 +7,47 @@ clear all; close all;
 % CI 1, IC 2: spin entry from deep stall
 % CI 2, IC 1: spin self-recovery (back to deep stall)
 
-% CI 1
-da = -20; % aileron in deg (+-21.5)
-de = -5; % stabilator deg (+-25)
-dr = 0; % rudder in deg (+-30) 
-CG = 37.5; % CG position in %MAC (25.0 to 37.5)
-T  = 10000; % thrust in N
-
-% IC 1
-alpha0 = 1.163325534316547; % rad
-beta0  = -0.0142233141487139; % rad
-V0     = 92.2774155855499; % m/s
-p0     = -0.249806083516482; % rad/s
-q0     = 0.239517453942822; % rad/s
-r0     = -0.582082779189844; % rad/s
-phi0   = -0.113403721456400; % rad
-theta0 = -0.414023981066343; % rad
-psi0   = 0; % rad
-X0     = 0; % m
-Y0     = 0; % m
-Z0     = 0; % m
-
-% % CI 2
-% da = 0; % aileron in deg (+-21.5)
-% de = 0; % stabilator deg (+-25)
+% % CI 1
+% da = -20; % aileron in deg (+-21.5)
+% de = -5; % stabilator deg (+-25)
 % dr = 0; % rudder in deg (+-30) 
 % CG = 37.5; % CG position in %MAC (25.0 to 37.5)
 % T  = 10000; % thrust in N
-
-% % IC 2
-% alpha0 = 1.01392670620385; % rad
-% beta0  = 0; % rad
-% V0     = 79.6036079039396; % m/s
-% p0     = 0; % rad/s
-% q0     = 0; % rad/s
-% r0     = 0; % rad/s
-% phi0   = 0; % rad
-% theta0 = 0.162105481242851; % rad
+% 
+% % IC 1
+% alpha0 = 1.163325534316547; % rad
+% beta0  = -0.0142233141487139; % rad
+% V0     = 92.2774155855499; % m/s
+% p0     = -0.249806083516482; % rad/s
+% q0     = 0.239517453942822; % rad/s
+% r0     = -0.582082779189844; % rad/s
+% phi0   = -0.113403721456400; % rad
+% theta0 = -0.414023981066343; % rad
 % psi0   = 0; % rad
 % X0     = 0; % m
 % Y0     = 0; % m
 % Z0     = 0; % m
+
+% CI 2
+da = 0; % aileron in deg (+-21.5)
+de = 0; % stabilator deg (+-25)
+dr = 0; % rudder in deg (+-30) 
+CG = 37.5; % CG position in %MAC (25.0 to 37.5)
+T  = 10000; % thrust in N
+
+% IC 2
+alpha0 = 1.01392670620385; % rad
+beta0  = 0; % rad
+V0     = 79.6036079039396; % m/s
+p0     = 0; % rad/s
+q0     = 0; % rad/s
+r0     = 0; % rad/s
+phi0   = 0; % rad
+theta0 = 0.162105481242851; % rad
+psi0   = 0; % rad
+X0     = 0; % m
+Y0     = 0; % m
+Z0     = 0; % m
 
 %% Simulate and plot
 x0 = [alpha0; beta0; V0; p0; q0; r0; phi0; theta0; psi0; X0; Y0; Z0];

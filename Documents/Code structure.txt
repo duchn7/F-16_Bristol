@@ -1,0 +1,40 @@
+LEGEND
+- Folder
++ Feature
+
+- Julia
+  - Open loop
+    - 4th order
+     + Live plotting
+     + Parallel simulation
+    - 8th order
+    - 12th order
+     + Live plotting
+     + 3D trajectory
+
+- MATLAB
+  - Closed loop
+    - 4th order
+      - Incremental nonlinear dynamic inversion
+      - Nonlinear dynamic inversion
+  - Open loop
+    - 4th order
+     + Trim: level flight
+    - 8th order
+     + Trim turning flight
+    - 12th order
+     + 3D trajectory
+
+- Python
+  - 4th order
+    - Open loop
+    - Closed loop
+     + Nonlinear dynamic inversion
+
+- Simulink
+  - Open loop
+    - 4th order
+      - Linear analysis
+      - Parallel simulation
+    - 8th order
+    - 12th order  
