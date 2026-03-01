@@ -1,16 +1,15 @@
 LEGEND
 - Folder
-+ Feature
++ Code with additional features
 
 - Julia
   - Open loop
     - 4th order
-     + Live plotting
-     + Parallel simulation
+     + Live plotting: run_f16_4_live_plot.jl
+     + Parallel simulation: run_f16_4_sweep.jl
     - 8th order
     - 12th order
-     + Live plotting
-     + 3D trajectory
+     + Live plotting with 3D trajectory: run_f16_12_live_plot.jl
 
 - MATLAB
   - Closed loop
@@ -19,22 +18,23 @@ LEGEND
       - Nonlinear dynamic inversion
   - Open loop
     - 4th order
-     + Trim: level flight
+     + Trim - level flight: trim_f16_4.m
     - 8th order
-     + Trim turning flight
+     + Trim - turning flight: trim_f16_8.m
     - 12th order
-     + 3D trajectory
+     + 3D trajectory: run_f16_12.m
 
 - Python
   - 4th order
     - Open loop
     - Closed loop
-     + Nonlinear dynamic inversion
+      - Incremental nonlinear dynamic inversion
+      - Nonlinear dynamic inversion
 
 - Simulink
   - Open loop
     - 4th order
-      - Linear analysis
+      - Linearise
       - Parallel simulation
     - 8th order
     - 12th order  
