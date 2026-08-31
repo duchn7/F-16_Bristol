@@ -1,4 +1,4 @@
-function xd = eom_8(t,x,u)
+function xd = eom_12(t,x,u)
 
 % States
 alpha = x(1); % rad
